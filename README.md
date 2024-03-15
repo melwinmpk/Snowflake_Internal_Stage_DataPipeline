@@ -79,7 +79,14 @@ CREATE TABLE amazonebook_reviews (
 	</ul>	
 </ul>
 
-
+<h3>How It Works</h3>
+<ul>
+<li><b>Workflow Design:</b> A DAG (Directed Acyclic Graph) in Airflow defines the sequence of tasks for data extraction, staging, and loading.</li>
+<li><b>Incremental Loading:</b> The pipeline identifies new or updated records in MySQL using timestamps or sequence IDs.</li>
+<li><b>Metadata Management:</b> Metadata definitions (i.e Config) guide the extraction and loading processes, allowing for flexibility and scalability.</li>
+<li><b>Monitoring and Logging:</b> Airflow provides comprehensive monitoring and logging capabilities, facilitating troubleshooting and performance optimization.</li>
+</ul>
+<h3>Screenshots for the Dag amazone_books</h3>
 <img width="1210" alt="image" src="https://github.com/melwinmpk/AmazonBooks_DataPipeline/assets/25386607/f14d9492-fdc6-4670-b56b-75303751392e">
 <img width="945" alt="image" src="https://github.com/melwinmpk/AmazonBooks_DataPipeline/assets/25386607/88cf3b74-3387-4e1e-9309-c550ee13d487">
 <img width="361" alt="image" src="https://github.com/melwinmpk/AmazonBooks_DataPipeline/assets/25386607/51e9538e-0cd2-4c24-b5a2-45337524460d">
@@ -87,36 +94,8 @@ CREATE TABLE amazonebook_reviews (
 <img width="782" alt="image" src="https://github.com/melwinmpk/AmazonBooks_DataPipeline/assets/25386607/71688582-4fc7-47ce-b646-c25e0c373463">
 <img width="982" alt="image" src="https://github.com/melwinmpk/AmazonBooks_DataPipeline/assets/25386607/9db6ff6a-e755-4c33-97c2-bf9854b7b8ba">
 
-<p>Amazonebook_reviews</p>
-<pre>
--- Create Transient Table
 
-CREATE TRANSIENT TABLE amazonebook_reviews (
-    book_id INTEGER
-	,reviewer_name TEXT
-	,rating FLOAT
-	,review_title TEXT
-	,review_content TEXT
-	,reviewed_on DATE
-    ,business_date DATE
-); 
-
-
--- Create Name Stage Table
-REMOVE amazonebook_reviews_stage;
-CREATE OR REPLACE STAGE amazonebook_reviews_stage
-FILE_FORMAT = (TYPE= csv FIELD_DELIMITER = ',' FIELD_OPTIONALLY_ENCLOSED_BY = '"' SKIP_HEADER = 1 );
-
-
--- Insert Last Extract Date
-INSERT INTO CONFIG.TABLE_CONFIG VALUES ('amazonebook_reviews','2024-01-01');
-
--- Insert Primary Keys
-INSERT INTO CONFIG.TBL_PRIMARY_KEY VALUES 
-('amazonebook_reviews','book_id',1,1),
-('amazonebook_reviews','reviewer_name',2,2),
-('amazonebook_reviews','business_date',3,7);
-</pre>	
+<h3>Screenshots for the Dag amazonebook_reviews</h3>
 <img width="1025" alt="image" src="https://github.com/melwinmpk/AmazonBooks_DataPipeline/assets/25386607/b60ce74f-6f63-45d7-8711-f7356dbdbb2f">
 <img width="1027" alt="image" src="https://github.com/melwinmpk/AmazonBooks_DataPipeline/assets/25386607/a6972e16-6177-4c8e-8e17-edcdd2a92ad1">
 <img width="1019" alt="image" src="https://github.com/melwinmpk/AmazonBooks_DataPipeline/assets/25386607/e11cb6ee-9d73-45c6-91d0-1cebc2f91c5d">
