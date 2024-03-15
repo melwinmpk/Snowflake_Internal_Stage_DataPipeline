@@ -1,15 +1,36 @@
-"# Snowflake_Internal_Stage_DataPipeline" 
+# Snowflake_Internal_Stage_DataPipeline
+
+<h2>Project Overview</h2>
+<p>This project, titled "Snowflake Internal Stage Data Pipeline," focuses on developing a robust data ingestion pipeline from a MySQL database to Snowflake utilizing Snowflake's Internal Stage and orchestrated with Airflow. The pipeline is designed to perform incremental data loads, enhancing efficiency and reducing data transfer volumes. A metadata-driven approach is employed to streamline and automate the data ingestion process.</p>
+
+<h2>Features</h2>
+<ul>
+<li><b>Incremental Data Loading:</b> Efficiently transfers only new or updated records from MySQL to Snowflake, minimizing data transfer and processing time.</li>
+<li><b>Metadata-Driven Pipeline:</b> Leverages metadata to dynamically configure and execute data ingestion tasks, reducing the need for hard-coded configurations.</li>
+<li><b>Airflow Orchestration:</b> Utilizes Apache Airflow to manage workflow orchestration, scheduling, and monitoring, ensuring reliable execution of data loading processes.</li>
+<li><b>Snowflake Integration:</b> Employs Snowflake's Internal Stage for secure and scalable data staging before ingestion into the target tables.</li>
+</ul>
+
+<h2>Technologies Used</h2>
+<ul>
+<li><b>MySQL:</b> Source database for extracting data.</li>
+<li><b>Snowflake:</b> Target cloud data warehouse for analytics.</li>
+<li><b>Apache Airflow:</b> Workflow orchestration tool to manage the data pipeline.</li>
+<li><b>Python:</b> The primary programming language for scripting and automation.</li>
+</ul>
 
 <!--<img width="1052" alt="image" src="https://github.com/melwinmpk/AmazonBooks_DataPipeline/assets/25386607/a3b2c949-2e49-4418-a7e2-bfede2356fc9">-->
 <img width="1052" alt="image" src="https://github.com/melwinmpk/AmazonBooks_DataPipeline/assets/25386607/ccfbea03-5f73-41b0-a9ed-5b6eceb2a5c8">
 
+<H3>Source Data</H3>
+<p>There are 2 tables which are getting ingested to Snowflake.</p>
+<p>Dedicated Dags are developed for each Table</p>
+<ol>
+	<li>amazone_books</li>
+	<li>amazonebook_reviews </li>
+</ol>
+<h4>Source Table DDls</h4>
 <pre>
-
-CREATE DATABASE amazonebooks;
-
-USE DATABASE amazonebooks;
-USE SCHEMA public;
-
 CREATE TABLE amazone_books (
 	book_id INT NOT NULL AUTO_INCREMENT
 	,book_title TEXT
@@ -21,28 +42,42 @@ CREATE TABLE amazone_books (
 	,PRIMARY KEY (book_id)
 	);
 
-CREATE OR REPLACE STAGE amazone_books_stage
-FILE_FORMAT = (TYPE= csv FIELD_DELIMITER = ',' FIELD_OPTIONALLY_ENCLOSED_BY = '"' SKIP_HEADER = 1);
-
--- We Can Use Put command only in SnowSQL
-USE DATABASE amazonebooks;
-PUT 'file:///<PATH>/amazonebooks.csv' @amazone_books_stage; 
-
-COPY INTO amazone_books FROM @amazone_books_stage;
-
-Once Completed remove 
-REMOVE @amazone_books_stage;
-
-
-CREATE SCHEMA config;
-
-CREATE TABLE dag_config(
-  dag_id INT NOT NULL AUTO_INCREMENT,
-  dag_name TEXT,
-  last_extract_date Date
-);
-
-</pre>  
+CREATE TABLE amazonebook_reviews (
+	book_id INT NOT NULL
+	,reviewer_name TEXT
+	,rating FLOAT
+	,review_title TEXT
+	,review_content TEXT
+	,reviewed_on DATE
+ 	,business_date DATE DEFAULT(CURRENT_DATE)
+	);
+</pre>
+<p> For the Incremental load. Primary Keys are required in the Tables. Respective Primary key for the Table are</p>
+<ul>
+	<li>amazone_books</li>
+	<ul>
+		<li>book_id</li>
+	</ul>	
+	<li>amazonebook_reviews</li>
+	<ul>
+		<li>book_id</li>
+		<li>reviewer_name</li>
+		<li>business_date</li>
+	</ul>
+		
+</ul>	
+<p> Note: This Source Data is from another Project. To know more about source Data please refer <a href='https://github.com/melwinmpk/AmazonBooks_DataPipeline?tab=readme-ov-file#amazonbookdata_datapipeline'>AmazonBooks_DataPipeline</a>  </p>
+<p>The Airflow Dag Ids for respective Tables are</p>
+<ul>
+	<li>amazone_books</li>
+	<ul>
+		<li>Snowflake_InternalStage_amazone_books_Dag</li>
+	</ul>	
+	<li>amazonebook_reviews</li>
+	<ul>
+		<li>Snowflake_InternalStage_amazonebook_review_Dag</li>
+	</ul>	
+</ul>
 
 
 <img width="1210" alt="image" src="https://github.com/melwinmpk/AmazonBooks_DataPipeline/assets/25386607/f14d9492-fdc6-4670-b56b-75303751392e">
