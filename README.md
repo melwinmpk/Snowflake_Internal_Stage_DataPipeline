@@ -86,6 +86,12 @@ CREATE TABLE amazonebook_reviews (
 <li><b>Metadata Management:</b> Metadata definitions (i.e Config) guide the extraction and loading processes, allowing for flexibility and scalability.</li>
 <li><b>Monitoring and Logging:</b> Airflow provides comprehensive monitoring and logging capabilities, facilitating troubleshooting and performance optimization.</li>
 </ul>
+
+<h3></h3>
+<ul>
+	<li><b>Data Quality Checks:</b> Implement additional data validation and quality checks within the pipeline.</li>
+	<li><b>Advanced Scheduling:</b> Enhance scheduling capabilities to support more complex dependencies and triggers.</li>
+</ul>	
 <h3>Screenshots for the Dag amazone_books</h3>
 <img width="1210" alt="image" src="https://github.com/melwinmpk/AmazonBooks_DataPipeline/assets/25386607/f14d9492-fdc6-4670-b56b-75303751392e">
 <img width="945" alt="image" src="https://github.com/melwinmpk/AmazonBooks_DataPipeline/assets/25386607/88cf3b74-3387-4e1e-9309-c550ee13d487">
