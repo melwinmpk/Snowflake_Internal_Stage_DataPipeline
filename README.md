@@ -87,7 +87,7 @@ CREATE TABLE amazonebook_reviews (
 <li><b>Monitoring and Logging:</b> Airflow provides comprehensive monitoring and logging capabilities, facilitating troubleshooting and performance optimization.</li>
 </ul>
 
-<h3></h3>
+<h3>Limitations and Future Enhancements</h3>
 <ul>
 	<li><b>Data Quality Checks:</b> Implement additional data validation and quality checks within the pipeline.</li>
 	<li><b>Advanced Scheduling:</b> Enhance scheduling capabilities to support more complex dependencies and triggers.</li>
