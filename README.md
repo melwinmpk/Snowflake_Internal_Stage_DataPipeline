@@ -66,7 +66,7 @@ CREATE TABLE amazonebook_reviews (
 	</ul>
 		
 </ul>	
-<p> Note: This Source Data is from another Project. To know more about source Data please refer <a href='https://github.com/melwinmpk/AmazonBooks_DataPipeline?tab=readme-ov-file#amazonbookdata_datapipeline'>AmazonBooks_DataPipeline</a>  </p>
+<p> Note: This Source Data is from another Project. To know more about how source data is generated please refer <a href='https://github.com/melwinmpk/AmazonBooks_DataPipeline?tab=readme-ov-file#amazonbookdata_datapipeline'>AmazonBooks_DataPipeline</a>  </p>
 <p>The Airflow Dag Ids for respective Tables are</p>
 <ul>
 	<li>amazone_books</li>
