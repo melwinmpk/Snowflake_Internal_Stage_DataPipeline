@@ -95,6 +95,8 @@ CREATE TABLE amazonebook_reviews (
 	<li><b>Data Quality Checks:</b> Implement additional data validation and quality checks within the pipeline.</li>
 	<li><b>Advanced Scheduling:</b> Enhance scheduling capabilities to support more complex dependencies and triggers.</li>
 </ul>	
+
+
 <h3>Screenshots for the Dag amazone_books</h3>
 <img width="1210" alt="image" src="https://github.com/melwinmpk/AmazonBooks_DataPipeline/assets/25386607/f14d9492-fdc6-4670-b56b-75303751392e">
 <img width="945" alt="image" src="https://github.com/melwinmpk/AmazonBooks_DataPipeline/assets/25386607/88cf3b74-3387-4e1e-9309-c550ee13d487">
@@ -110,3 +112,13 @@ CREATE TABLE amazonebook_reviews (
 <img width="1019" alt="image" src="https://github.com/melwinmpk/AmazonBooks_DataPipeline/assets/25386607/e11cb6ee-9d73-45c6-91d0-1cebc2f91c5d">
 <img width="804" alt="image" src="https://github.com/melwinmpk/AmazonBooks_DataPipeline/assets/25386607/7c4060f9-1291-4e50-baee-dee350d2b979">
 <img width="1219" alt="image" src="https://github.com/melwinmpk/AmazonBooks_DataPipeline/assets/25386607/d4c6c876-b711-4712-b2b2-22f3b5c38ab3">
+
+
+<h3>Reference</h3>
+
+<ul>
+	<li><b>Incremental Load</b>: <a href="https://medium.com/@nripapathak/incremental-data-load-approach-and-implementation-strategy-dd89bc41629c" target="_blank">Medium</a></li>
+	<li><b>Internal stage</b>:<a href="https://docs.snowflake.com/en/user-guide/data-load-local-file-system"  target="_blank">Snowflake Docs</a></li>
+	<li><b>Power of Metadata driven ETL Frameworks</b>:<a href="https://www.linkedin.com/pulse/power-metadata-driven-etl-frameworks-dataleagueptyltd-3m1bc/
+" target="_blank">Linkedin</a></li>
+</ul>	
