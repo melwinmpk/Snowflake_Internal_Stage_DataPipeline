@@ -3,6 +3,9 @@
 <h2>Project Overview</h2>
 <p>This project, titled "Snowflake Internal Stage Data Pipeline," focuses on developing a robust data ingestion pipeline from a MySQL database to Snowflake utilizing Snowflake's Internal Stage and orchestrated with Airflow. The pipeline is designed to perform incremental data loads, enhancing efficiency and reducing data transfer volumes. A metadata-driven approach is employed to streamline and automate the data ingestion process.</p>
 
+## Youtube Video
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/7hnOcUFgrWc/0.jpg)](https://www.youtube.com/watch?v=7hnOcUFgrWc)
+
 <h2>Features</h2>
 <ul>
 <li><b>Incremental Data Loading:</b> Efficiently transfers only new or updated records from MySQL to Snowflake, minimizing data transfer and processing time.</li>
